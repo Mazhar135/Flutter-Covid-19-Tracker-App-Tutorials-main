@@ -1,3 +1,4 @@
+import 'package:covid_tracker/View/detial_screen.dart';
 import 'package:flutter/material.dart';
 // Make sure to import your services file!
 import 'package:covid_tracker/Services/states_services.dart';
@@ -83,15 +84,32 @@ class _CountriesListAState extends State<CountriesListScreen> {
                             children: [
                               // You will build your country list items here
                               // implement country list item using ListTile
-                              ListTile(
-                                title: Text(snapshot.data![index]['country']),
-                                subtitle: Text(snapshot.data![index]['cases'].toString()),
+                              InkWell(
+                                onTap: (){
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) => DetialScreen(
+                                        image: snapshot.data![index]['countryInfo']['flag'],
+                                        name: snapshot.data![index]['country'] ,
+                                        totalCases:  snapshot.data![index]['cases'] ,
+                                        totalRecovered: snapshot.data![index]['recovered'] ,
+                                        totalDeaths: snapshot.data![index]['deaths'] ,
+                                        active: snapshot.data![index]['active'] ,
+                                        test: snapshot.data![index]['tests'] ,
+                                        todayRecovered: snapshot.data![index]['todayRecovered'],
+                                        critical: snapshot.data![index]['critical'] ,
 
-                                // CHANGED HERE: Replaced Container with NetworkImage for the flag
-                                leading: Image(
-                                  height: 50,
-                                  width: 50,
-                                  image: NetworkImage(snapshot.data![index]['countryInfo']['flag']),
+                                      )));
+                                },
+                                child: ListTile(
+                                  title: Text(snapshot.data![index]['country']),
+                                  subtitle: Text(snapshot.data![index]['cases'].toString()),
+                                
+                                  // CHANGED HERE: Replaced Container with NetworkImage for the flag
+                                  leading: Image(
+                                    height: 50,
+                                    width: 50,
+                                    image: NetworkImage(snapshot.data![index]['countryInfo']['flag']),
+                                  ),
                                 ),
                               )
                             ],
@@ -101,15 +119,32 @@ class _CountriesListAState extends State<CountriesListScreen> {
                             children: [
                               // You will build your country list items here
                               // implement country list item using ListTile
-                              ListTile(
-                                title: Text(snapshot.data![index]['country']),
-                                subtitle: Text(snapshot.data![index]['cases'].toString()),
+                              InkWell(
+                                onTap: (){
+                                  Navigator.push(context,
+                                      MaterialPageRoute(builder: (context) => DetialScreen(
+                                        image: snapshot.data![index]['countryInfo']['flag'],
+                                        name: snapshot.data![index]['country'] ,
+                                        totalCases:  snapshot.data![index]['cases'] ,
+                                        totalRecovered: snapshot.data![index]['recovered'] ,
+                                        totalDeaths: snapshot.data![index]['deaths'] ,
+                                        active: snapshot.data![index]['active'] ,
+                                        test: snapshot.data![index]['tests'] ,
+                                        todayRecovered: snapshot.data![index]['todayRecovered'],
+                                        critical: snapshot.data![index]['critical'] ,
 
-                                // CHANGED HERE: Replaced Container with NetworkImage for the flag
-                                leading: Image(
-                                  height: 50,
-                                  width: 50,
-                                  image: NetworkImage(snapshot.data![index]['countryInfo']['flag']),
+                                      )));
+                                },
+                                child: ListTile(
+                                  title: Text(snapshot.data![index]['country']),
+                                  subtitle: Text(snapshot.data![index]['cases'].toString()),
+
+                                  // CHANGED HERE: Replaced Container with NetworkImage for the flag
+                                  leading: Image(
+                                    height: 50,
+                                    width: 50,
+                                    image: NetworkImage(snapshot.data![index]['countryInfo']['flag']),
+                                  ),
                                 ),
                               )
                             ],
